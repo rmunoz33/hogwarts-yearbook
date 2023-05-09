@@ -3,6 +3,7 @@ import "./App.css";
 import Cover from "./pages/Cover";
 import MissingPage from "./pages/MissingPage";
 import Sidebar from "./components/Sidebar";
+import Staff from "./pages/Staff";
 
 const App = () => {
   const location = useLocation();
@@ -20,7 +21,7 @@ const App = () => {
             <Route path="/" element={<Cover />} />
             <Route path="/missing" element={<MissingPage />} />
             <Route path="/students" element={<MissingPage />} />
-            <Route path="/staff" element={<MissingPage />} />
+            <Route path="/staff" element={<Staff />} />
             <Route path="/houses" element={<MissingPage />} />
             <Route path="/spells" element={<MissingPage />} />
           </Routes>
