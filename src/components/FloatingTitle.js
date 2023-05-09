@@ -1,7 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const FloatingText = () => {
+  const navigate = useNavigate();
+
   const animationVariants = {
     start: { x: 0, y: 0 },
     floating: {
@@ -20,6 +23,9 @@ const FloatingText = () => {
       }}
       variants={animationVariants}
       animate="floating"
+      onClick={() => {
+        navigate("/students");
+      }}
     >
       Hogwarts Yearbook
     </motion.p>

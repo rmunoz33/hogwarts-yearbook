@@ -12,13 +12,13 @@ const Cover = () => {
         src={require("../assets/crest.png")}
         style={{ width: "300px", cursor: "pointer" }}
         onClick={() => {
-          navigate("/missing");
+          navigate("/students");
         }}
       />
       <p
         style={{ fontFamily: "Lumos", fontSize: "2em", cursor: "pointer" }}
         onClick={() => {
-          navigate("/missing");
+          navigate("/students");
         }}
       >
         Click to Enter
