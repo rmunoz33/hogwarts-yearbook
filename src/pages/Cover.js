@@ -5,7 +5,7 @@ const Cover = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="container">
+    <div className="cover-container">
       <FloatingText />
       <img
         alt="Hogwarts Crest"

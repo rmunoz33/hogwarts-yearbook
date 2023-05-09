@@ -7,11 +7,28 @@
   width: 100%;
 }
 
-.container {
-  align-items: center;
-  display: flex;
+.cover-container {
   flex-direction: column;
+  display: flex;
   justify-content: center;
-  min-height: 100vh;
+  align-items: center;
   text-align: center;
+  min-height: 100vh;
+}
+
+.page-container {
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+}
+
+.page-content {
+  text-align: center;
+  padding: 200px;
+}
+
+.cover-content {
+  align-items: center;
 }
