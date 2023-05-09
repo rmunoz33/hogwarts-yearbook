@@ -15,7 +15,3 @@
   min-height: 100vh;
   text-align: center;
 }
-
-.content {
-  flex-grow: 1;
-}

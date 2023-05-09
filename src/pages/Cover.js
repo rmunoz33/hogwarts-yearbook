@@ -1,22 +1,12 @@
 import { useNavigate } from "react-router-dom";
+import FloatingText from "../components/FloatingTitle";
 
 const Cover = () => {
   const navigate = useNavigate();
 
   return (
     <div className="container">
-      <p
-        style={{
-          fontFamily: "Harry Potter",
-          fontSize: "3em",
-          cursor: "pointer",
-        }}
-        onClick={() => {
-          navigate("/missing");
-        }}
-      >
-        Hogwarts Yearbook
-      </p>
+      <FloatingText />
       <img
         alt="Hogwarts Crest"
         src={require("../assets/crest.png")}
