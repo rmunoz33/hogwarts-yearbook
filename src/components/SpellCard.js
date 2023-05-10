@@ -47,13 +47,13 @@ const CharacterCard = (props) => {
         <CardActions>
           {!expanded ? (
             <ExpandMore
-              expand={expanded}
+              expand={expanded.toString()}
               aria-expanded={expanded}
               aria-label="show more"
             />
           ) : (
             <ExpandLess
-              expand={expanded}
+              expand={expanded.toString()}
               aria-expanded={expanded}
               aria-label="show more"
             />
