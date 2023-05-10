@@ -27,15 +27,13 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    "& > div": {
-      overflow: "hidden",
-    },
+    overflow: "auto",
   },
   content: {
     backgroundColor: theme.palette.background.default,
     outline: "none",
     padding: theme.spacing(2),
-    maxHeight: "80vh",
+    height: "60vh",
     overflowY: "auto",
   },
   title: {
@@ -45,6 +43,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
     borderBottom: "5px solid black",
     padding: theme.spacing(2),
+  },
+  subheading: {
+    fontFamily: "Harry Potter",
   },
 }));
 
@@ -62,6 +63,41 @@ const CharacterCardModal = ({ open, onClose, character }) => {
     }
   }, [open]);
 
+  const formatDate = (oldDate) => {
+    if (oldDate) {
+      const [day, month, year] = oldDate.split("-");
+      const date = new Date(`${month}-${day}-${year}`);
+      return date.toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      });
+    }
+    return "";
+  };
+
+  const characterHasWand =
+    character.wand.wood !== "" &&
+    character.wand.core !== "" &&
+    character.wand.length;
+
+  const formatInfo = (label, value) =>
+    value !== "" ? (
+      <Grid
+        container
+        spacing={2}
+        justifyContent="space-between"
+        alignItems="center"
+      >
+        <Grid item style={{ fontWeight: "bold" }}>
+          {label}:{" "}
+        </Grid>
+        <Grid item>{value}</Grid>
+      </Grid>
+    ) : (
+      <></>
+    );
+
   return (
     <Modal
       open={open}
@@ -70,9 +106,9 @@ const CharacterCardModal = ({ open, onClose, character }) => {
       className={classes.modal}
       ref={modalRef}
     >
-      <div className={classes.content}>
+      <div>
         <DialogTitle disableTypography className={classes.title}>
-          <Typography variant="h6" style={{ fontFamily: "Harry Potter" }}>
+          <Typography variant="h5" style={{ fontFamily: "Harry Potter" }}>
             {character.name}
           </Typography>
           <IconButton
@@ -87,7 +123,6 @@ const CharacterCardModal = ({ open, onClose, character }) => {
         </DialogTitle>
 
         <DialogContent className={classes.content}>
-          {/* Render the detailed character information */}
           <Grid container justifyContent="center">
             <Grid item xs={12} sm={6}>
               <img
@@ -101,51 +136,68 @@ const CharacterCardModal = ({ open, onClose, character }) => {
               />
             </Grid>
           </Grid>
-          <Typography variant="subtitle1" style={{ fontFamily: "Lumos" }}>
-            House: {character.house}
-            <br />
-            name: {character.name}
-            <br />
-            {/* "alternate_names": [
-            "Professor Dumbledore"
-        ], */}
-            species: {character.species}
-            <br />
-            gender: {character.gender}
-            <br />
-            house: {character.house}
-            <br />
-            date of birth: {character.dateOfBirth}
-            <br />
-            yearOfBirth: {character.yearOfBirth}
-            <br />
-            wizard: {character.wizard} <br />
-            ancestry:
-            {character.ancestry}
-            <br />
-            eyeColour: {character.eyeColour}
-            <br />
-            hairColour: {character.hairColour}
-            <br />
-            {/* "wand": {
-            wood: {character.wood}
-            core: {character.core}
-            "length": null
-        }, */}
-            patronus: {character.patronus}
-            <br />
-            hogwartsStudent: {character.hogwartsStudent}
-            <br />
-            hogwartsStaff: {character.hogwartsStaff}
-            <br />
-            actor:
-            {character.actor}
-            <br />
-            {/* "alternate_actors": [
-            "Michael Gambon"
-        ], */}
-            alive: {character.alive}
-          </Typography>
+          <div style={{ fontFamily: "Lumos", fontSize: "x-large" }}>
+            {character.alternate_names.length ? (
+              <>
+                <div className={classes.subheading}>Alternate Names</div>
+                {character.alternate_names.map((name) => (
+                  <div>{name}</div>
+                ))}
+                <br />
+              </>
+            ) : (
+              <></>
+            )}
+            {formatInfo("House", character.house)}
+            {formatInfo("Species", character.species)}
+            {formatInfo("Gender", character.gender)}
+            {formatInfo("House", character.house)}
+            {formatInfo("Date of Birth", formatDate(character.dateOfBirth))}
+            {formatInfo("Wizard", character.wizard ? "Yes" : "No")}
+            {formatInfo("Ancestry", character.ancestry)}
+            {formatInfo("Eye Colour", character.eyeColour)}
+            {formatInfo("Hair Colour", character.hairColour)}
+            {characterHasWand ? (
+              <>
+                <br />
+                <div className={classes.subheading}>Wand</div>
+                <div>
+                  <strong>Wood:</strong> {character.wand.wood}
+                </div>
+                <div>
+                  <strong>Core:</strong> {character.wand.core}
+                </div>
+                <div>
+                  <strong>Length:</strong> {character.wand.length} inches
+                </div>
+                <br />
+              </>
+            ) : (
+              <></>
+            )}
+            {formatInfo("Patronus", character.patronus)}
+            {formatInfo(
+              "Hogwarts Student",
+              character.hogwartsStudent ? "Yes" : "No"
+            )}
+            {formatInfo(
+              "Hogwarts Staff",
+              character.hogwartsStaff ? "Yes" : "No"
+            )}
+            {formatInfo("Alive", character.alive ? "Yes" : "No")}
+            {formatInfo("Actor", character.actor)}
+            {character.alternate_actors.length ? (
+              <>
+                <br />
+                <div className={classes.subheading}>Alternate Actors</div>
+                {character.alternate_actors.map((actor) => (
+                  <div>{actor}</div>
+                ))}
+              </>
+            ) : (
+              <></>
+            )}
+          </div>
         </DialogContent>
       </div>
     </Modal>
