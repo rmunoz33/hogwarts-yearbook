@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   makeStyles,
   Drawer,
@@ -38,6 +38,10 @@ const useStyles = makeStyles((theme) => ({
 const Sidebar = () => {
   const classes = useStyles();
 
+  const [selectedPage, setSelectedPage] = useState("students");
+
+  const handleOnClick = (page) => setSelectedPage(page);
+
   return (
     <Drawer
       className={classes.drawer}
@@ -48,7 +52,13 @@ const Sidebar = () => {
     >
       <div className={classes.toolbar} />
       <List>
-        <ListItem button component={Link} to="/">
+        <ListItem
+          button
+          component={Link}
+          to="/"
+          onClick={() => handleOnClick("")}
+          selected={selectedPage === ""}
+        >
           <ListItemIcon className={classes.listItemIcon}>
             <Home />
           </ListItemIcon>
@@ -57,7 +67,13 @@ const Sidebar = () => {
             classes={{ primary: classes.listItemText }}
           />
         </ListItem>
-        <ListItem button component={Link} to="/students">
+        <ListItem
+          button
+          component={Link}
+          to="/students"
+          onClick={() => handleOnClick("students")}
+          selected={selectedPage === "students"}
+        >
           <ListItemIcon className={classes.listItemIcon}>
             <School />
           </ListItemIcon>
@@ -66,7 +82,13 @@ const Sidebar = () => {
             classes={{ primary: classes.listItemText }}
           />
         </ListItem>
-        <ListItem button component={Link} to="/staff">
+        <ListItem
+          button
+          component={Link}
+          to="/staff"
+          onClick={() => handleOnClick("staff")}
+          selected={selectedPage === "staff"}
+        >
           <ListItemIcon className={classes.listItemIcon}>
             <Work />
           </ListItemIcon>
@@ -75,7 +97,13 @@ const Sidebar = () => {
             classes={{ primary: classes.listItemText }}
           />
         </ListItem>
-        <ListItem button component={Link} to="/houses">
+        <ListItem
+          button
+          component={Link}
+          to="/houses"
+          onClick={() => handleOnClick("houses")}
+          selected={selectedPage === "houses"}
+        >
           <ListItemIcon className={classes.listItemIcon}>
             <Security />
           </ListItemIcon>
@@ -84,7 +112,13 @@ const Sidebar = () => {
             classes={{ primary: classes.listItemText }}
           />
         </ListItem>
-        <ListItem button component={Link} to="/spells">
+        <ListItem
+          button
+          component={Link}
+          to="/spells"
+          onClick={() => handleOnClick("spells")}
+          selected={selectedPage === "spells"}
+        >
           <ListItemIcon className={classes.listItemIcon}>
             <FlashOn />
           </ListItemIcon>

@@ -4,22 +4,20 @@ import FloatingText from "../components/FloatingTitle";
 const Cover = () => {
   const navigate = useNavigate();
 
+  const handleOnClick = () => navigate(`/students`);
+
   return (
     <div className="cover-container">
-      <FloatingText />
+      <FloatingText onClick={handleOnClick} />
       <img
         alt="Hogwarts Crest"
         src={require("../assets/crest.png")}
         style={{ width: "300px", cursor: "pointer" }}
-        onClick={() => {
-          navigate("/students");
-        }}
+        onClick={handleOnClick}
       />
       <p
         style={{ fontFamily: "Lumos", fontSize: "2em", cursor: "pointer" }}
-        onClick={() => {
-          navigate("/students");
-        }}
+        onClick={handleOnClick}
       >
         Click to Enter
       </p>
