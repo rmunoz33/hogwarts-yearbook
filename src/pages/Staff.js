@@ -32,7 +32,6 @@ const Staff = () => {
       setLoading(true);
       try {
         const data = await fetchStaff();
-        console.log(data);
         setStaff(data);
         setLoading(false);
       } catch (error) {

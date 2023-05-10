@@ -32,7 +32,6 @@ const Spells = () => {
       setLoading(true);
       try {
         const data = await fetchSpells();
-        console.log(data);
         setSpells(data);
         setLoading(false);
       } catch (error) {

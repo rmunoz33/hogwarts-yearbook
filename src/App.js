@@ -6,6 +6,7 @@ import Sidebar from "./components/Sidebar";
 import Staff from "./pages/Staff";
 import Students from "./pages/Students";
 import Spells from "./pages/Spells";
+import AudioButton from "./components/AudioButton";
 
 const App = () => {
   const location = useLocation();
@@ -17,6 +18,7 @@ const App = () => {
         className="page-container"
         style={{ display: shouldShowSidebar && "flex" }}
       >
+        <AudioButton />
         <div className="sidebar">{shouldShowSidebar && <Sidebar />}</div>
         <div className={shouldShowSidebar ? "page-content" : "cover-content"}>
           <Routes>

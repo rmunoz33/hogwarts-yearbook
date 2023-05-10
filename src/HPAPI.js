@@ -32,7 +32,7 @@ export const fetchSpells = async () => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Error fetching staff:", error);
+    console.error("Error fetching spells:", error);
     throw error;
   }
 };

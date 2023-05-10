@@ -32,7 +32,6 @@ const Students = () => {
       setLoading(true);
       try {
         const data = await fetchStudents();
-        console.log(data);
         setStudents(data);
         setLoading(false);
       } catch (error) {
