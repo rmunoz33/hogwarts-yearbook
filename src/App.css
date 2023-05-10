@@ -35,8 +35,9 @@
 
 .audio-toggle {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 40px;
+  right: 40px;
   padding: 20px;
   z-index: 99;
+  cursor: pointer;
 }

@@ -21,7 +21,11 @@ const AudioButton = () => {
 
   return (
     <div onClick={toggleAudio} className="audio-toggle">
-      {isPlaying ? <PauseCircleFilled /> : <PlayCircleFilled />}
+      {isPlaying ? (
+        <PauseCircleFilled fontSize="large" />
+      ) : (
+        <PlayCircleFilled fontSize="large" />
+      )}
     </div>
   );
 };
