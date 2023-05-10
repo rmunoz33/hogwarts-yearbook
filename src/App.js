@@ -5,6 +5,7 @@ import MissingPage from "./pages/MissingPage";
 import Sidebar from "./components/Sidebar";
 import Staff from "./pages/Staff";
 import Students from "./pages/Students";
+import Spells from "./pages/Spells";
 
 const App = () => {
   const location = useLocation();
@@ -24,7 +25,7 @@ const App = () => {
             <Route path="/students" element={<Students />} />
             <Route path="/staff" element={<Staff />} />
             <Route path="/houses" element={<MissingPage />} />
-            <Route path="/spells" element={<MissingPage />} />
+            <Route path="/spells" element={<Spells />} />
           </Routes>
         </div>
       </div>
