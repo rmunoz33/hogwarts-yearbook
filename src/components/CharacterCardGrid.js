@@ -5,9 +5,9 @@ import CharacterCard from "./CharacterCard";
 const CharacterCardGrid = ({ characters }) => {
   return (
     <Grid container spacing={2}>
-      {characters.map((character) => (
+      {characters.map((character, index) => (
         <Grid item key={character.id} xs={12} sm={6} md={4} lg={3} xl={2}>
-          <CharacterCard data={character} />
+          <CharacterCard newKey={index} data={character} />
         </Grid>
       ))}
     </Grid>

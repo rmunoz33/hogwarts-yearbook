@@ -141,7 +141,7 @@ const CharacterCardModal = ({ open, onClose, character }) => {
               <>
                 <div className={classes.subheading}>Alternate Names</div>
                 {character.alternate_names.map((name) => (
-                  <div>{name}</div>
+                  <div key={name}>{name}</div>
                 ))}
                 <br />
               </>
@@ -191,7 +191,7 @@ const CharacterCardModal = ({ open, onClose, character }) => {
                 <br />
                 <div className={classes.subheading}>Alternate Actors</div>
                 {character.alternate_actors.map((actor) => (
-                  <div>{actor}</div>
+                  <div key={actor}>{actor}</div>
                 ))}
               </>
             ) : (

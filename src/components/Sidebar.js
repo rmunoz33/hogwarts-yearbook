@@ -57,7 +57,7 @@ const Sidebar = () => {
             classes={{ primary: classes.listItemText }}
           />
         </ListItem>
-        <ListItem button component={Link} to="/missing">
+        <ListItem button component={Link} to="/students">
           <ListItemIcon className={classes.listItemIcon}>
             <School />
           </ListItemIcon>

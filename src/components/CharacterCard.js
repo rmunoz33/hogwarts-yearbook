@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     padding: theme.spacing(2),
     background: "transparent",
-    // boxShadow: "none",
     cursor: "pointer",
   },
   image: {
@@ -64,13 +63,10 @@ const CharacterCard = (props) => {
           >
             {character.name}
           </Typography>
-          {/* <Typography color="textSecondary">House: {character.house}</Typography>
-        <Typography color="textSecondary">
-        Year of Birth: {character.yearOfBirth}
-    </Typography> */}
         </CardContent>
       </Card>
       <CharacterCardModal
+        key={props.newKey}
         open={modalOpen}
         onClose={handleCloseModal}
         character={character}
