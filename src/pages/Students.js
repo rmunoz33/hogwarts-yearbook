@@ -28,6 +28,8 @@ const Students = () => {
   const classes = useStyles();
 
   useEffect(() => {
+    sessionStorage.setItem("page", "students");
+
     const fetchData = async () => {
       setLoading(true);
       try {

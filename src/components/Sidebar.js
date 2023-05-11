@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   makeStyles,
   Drawer,
@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: 240,
-    borderRight: "5px solid black", // Add a black border
-    backgroundImage: `url(${parchment})`, // Add the URL of your image
+    borderRight: "5px solid black",
+    backgroundImage: `url(${parchment})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   },
@@ -39,6 +39,11 @@ const Sidebar = () => {
   const classes = useStyles();
 
   const [selectedPage, setSelectedPage] = useState("students");
+
+  useEffect(() => {
+    const previouslySelectedPage = sessionStorage.getItem("page");
+    if (previouslySelectedPage) setSelectedPage(previouslySelectedPage);
+  }, []);
 
   const handleOnClick = (page) => setSelectedPage(page);
 

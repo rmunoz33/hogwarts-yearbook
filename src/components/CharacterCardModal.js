@@ -6,34 +6,22 @@ import {
   IconButton,
   makeStyles,
   Grid,
-  Modal,
+  Dialog,
 } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
 import parchment from "../assets/parchment.png";
 
 const useStyles = makeStyles((theme) => ({
   image: {
-    width: "100%",
+    width: "200px",
     height: "auto",
     marginBottom: theme.spacing(2),
-  },
-  closeButton: {
-    position: "absolute",
-    top: theme.spacing(10),
-    right: theme.spacing(55),
-    color: "white",
-  },
-  modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    overflow: "auto",
   },
   content: {
     backgroundColor: theme.palette.background.default,
     outline: "none",
     padding: theme.spacing(2),
-    height: "60vh",
+    overflowX: "hidden", // Hide horizontal overflow
     overflowY: "auto",
   },
   title: {
@@ -99,27 +87,38 @@ const CharacterCardModal = ({ open, onClose, character }) => {
     );
 
   return (
-    <Modal
+    <Dialog
       open={open}
       onClose={onClose}
       disablePortal
-      className={classes.modal}
+      maxWidth="sm"
+      fullWidth
       ref={modalRef}
     >
       <div>
         <DialogTitle disableTypography className={classes.title}>
-          <Typography variant="h5" style={{ fontFamily: "Harry Potter" }}>
-            {character.name}
-          </Typography>
-          <IconButton
-            edge="end"
-            color="inherit"
-            onClick={onClose}
-            aria-label="close"
-            className={classes.closeButton}
+          <Grid
+            container
+            spacing={2}
+            justifyContent="space-between"
+            alignItems="center"
           >
-            <Close />
-          </IconButton>
+            <Grid item>
+              <Typography variant="h5" style={{ fontFamily: "Harry Potter" }}>
+                {character.name}
+              </Typography>
+            </Grid>
+            <Grid item>
+              <IconButton
+                edge="end"
+                color="inherit"
+                onClick={onClose}
+                aria-label="close"
+              >
+                <Close />
+              </IconButton>
+            </Grid>
+          </Grid>
         </DialogTitle>
 
         <DialogContent className={classes.content}>
@@ -200,7 +199,7 @@ const CharacterCardModal = ({ open, onClose, character }) => {
           </div>
         </DialogContent>
       </div>
-    </Modal>
+    </Dialog>
   );
 };
 

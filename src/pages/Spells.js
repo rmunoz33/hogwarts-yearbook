@@ -28,6 +28,8 @@ const Spells = () => {
   const classes = useStyles();
 
   useEffect(() => {
+    sessionStorage.setItem("page", "spells");
+
     const fetchData = async () => {
       setLoading(true);
       try {

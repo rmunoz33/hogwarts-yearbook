@@ -27,6 +27,8 @@
 .page-content {
   text-align: center;
   padding: 100px;
+  justify-content: center;
+  width: 100%;
 }
 
 .cover-content {

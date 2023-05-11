@@ -6,6 +6,7 @@ import Sidebar from "./components/Sidebar";
 import Staff from "./pages/Staff";
 import Students from "./pages/Students";
 import Spells from "./pages/Spells";
+import Houses from "./pages/Houses";
 import AudioButton from "./components/AudioButton";
 
 const App = () => {
@@ -26,7 +27,7 @@ const App = () => {
             <Route path="/missing" element={<MissingPage />} />
             <Route path="/students" element={<Students />} />
             <Route path="/staff" element={<Staff />} />
-            <Route path="/houses" element={<MissingPage />} />
+            <Route path="/houses" element={<Houses />} />
             <Route path="/spells" element={<Spells />} />
           </Routes>
         </div>
