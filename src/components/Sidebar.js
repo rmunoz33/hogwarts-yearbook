@@ -11,19 +11,19 @@ import { Home, School, Work, Security, FlashOn } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import parchment from "../assets/parchment.png";
 
+const drawerWidth = 240;
+
 const useStyles = makeStyles((theme) => ({
   drawer: {
-    width: 240,
-    flexShrink: 0,
+    width: drawerWidth,
   },
   drawerPaper: {
-    width: 240,
+    width: drawerWidth,
     borderRight: "5px solid black",
     backgroundImage: `url(${parchment})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   },
-  toolbar: theme.mixins.toolbar,
   listItemIcon: {
     display: "flex",
     justifyContent: "center",
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   const classes = useStyles();
 
   const [selectedPage, setSelectedPage] = useState("students");
@@ -50,12 +50,15 @@ const Sidebar = () => {
   return (
     <Drawer
       className={classes.drawer}
-      variant="permanent"
-      classes={{
-        paper: classes.drawerPaper,
+      variant="temporary"
+      anchor="left"
+      classes={{ paper: classes.drawerPaper }}
+      open={props.isOpen}
+      onClose={() => props.setIsOpen(false)}
+      ModalProps={{
+        slotProps: { backdrop: { invisible: true } },
       }}
     >
-      <div className={classes.toolbar} />
       <List>
         <ListItem
           button

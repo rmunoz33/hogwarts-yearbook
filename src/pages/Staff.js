@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Staff = () => {
+const Staff = (props) => {
   const [staff, setStaff] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -29,6 +29,7 @@ const Staff = () => {
 
   useEffect(() => {
     sessionStorage.setItem("page", "staff");
+    props.handleDrawerClick();
 
     const fetchData = async () => {
       setLoading(true);

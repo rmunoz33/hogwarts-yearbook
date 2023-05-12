@@ -1,10 +1,5 @@
 .App {
-  background-image: url("./assets/parchment.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 100vh;
-  width: 100%;
+  position: relative;
 }
 
 .cover-container {
@@ -18,10 +13,7 @@
 
 .page-container {
   min-height: 100vh;
-}
-
-.sidebar {
-  width: 200px;
+  background-image: url("./assets/parchment.png");
 }
 
 .page-content {
@@ -29,6 +21,9 @@
   padding: 100px;
   justify-content: center;
   width: 100%;
+  flex-grow: 1;
+  position: "relative";
+  z-index: 1;
 }
 
 .cover-content {
@@ -36,9 +31,18 @@
 }
 
 .audio-toggle {
-  position: absolute;
+  position: fixed;
   top: 40px;
   right: 40px;
+  padding: 20px;
+  z-index: 99;
+  cursor: pointer;
+}
+
+.drawer-toggle {
+  position: fixed;
+  top: 40px;
+  left: 40px;
   padding: 20px;
   z-index: 99;
   cursor: pointer;

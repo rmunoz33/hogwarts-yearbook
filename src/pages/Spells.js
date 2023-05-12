@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Spells = () => {
+const Spells = (props) => {
   const [loading, setLoading] = useState(false);
   const [spells, setSpells] = useState([]);
 
@@ -29,6 +29,7 @@ const Spells = () => {
 
   useEffect(() => {
     sessionStorage.setItem("page", "spells");
+    props.handleDrawerClick();
 
     const fetchData = async () => {
       setLoading(true);
@@ -43,6 +44,7 @@ const Spells = () => {
     };
 
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return loading ? (

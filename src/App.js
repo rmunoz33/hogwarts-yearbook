@@ -8,27 +8,52 @@ import Students from "./pages/Students";
 import Spells from "./pages/Spells";
 import Houses from "./pages/Houses";
 import AudioButton from "./components/AudioButton";
+import { useState } from "react";
+import MenuToggleButton from "./components/MenuToggleButton";
 
 const App = () => {
   const location = useLocation();
   const shouldShowSidebar = location.pathname !== "/";
 
+  const [drawerIsOpen, setDrawerIsOpen] = useState(true);
+
+  const handleDrawerClick = () => setDrawerIsOpen(!drawerIsOpen);
+
   return (
     <div className="App">
+      {shouldShowSidebar && (
+        <MenuToggleButton handleDrawerClick={handleDrawerClick} />
+      )}
+      <AudioButton />
       <div
         className="page-container"
         style={{ display: shouldShowSidebar && "flex" }}
       >
-        <AudioButton />
-        <div className="sidebar">{shouldShowSidebar && <Sidebar />}</div>
+        <div style={{ width: drawerIsOpen ? "200px" : "" }}>
+          {shouldShowSidebar && (
+            <Sidebar isOpen={drawerIsOpen} setIsOpen={setDrawerIsOpen} />
+          )}
+        </div>
         <div className={shouldShowSidebar ? "page-content" : "cover-content"}>
           <Routes>
             <Route path="/" element={<Cover />} />
             <Route path="/missing" element={<MissingPage />} />
-            <Route path="/students" element={<Students />} />
-            <Route path="/staff" element={<Staff />} />
-            <Route path="/houses" element={<Houses />} />
-            <Route path="/spells" element={<Spells />} />
+            <Route
+              path="/students"
+              element={<Students handleDrawerClick={handleDrawerClick} />}
+            />
+            <Route
+              path="/staff"
+              element={<Staff handleDrawerClick={handleDrawerClick} />}
+            />
+            <Route
+              path="/houses"
+              element={<Houses handleDrawerClick={handleDrawerClick} />}
+            />
+            <Route
+              path="/spells"
+              element={<Spells handleDrawerClick={handleDrawerClick} />}
+            />
           </Routes>
         </div>
       </div>

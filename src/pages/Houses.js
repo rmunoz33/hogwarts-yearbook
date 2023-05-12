@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Houses = () => {
+const Houses = (props) => {
   const [selectedHouse, setSelectedHouse] = useState("");
   const [houseMembers, setHouseMembers] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -39,6 +39,7 @@ const Houses = () => {
 
   useEffect(() => {
     sessionStorage.setItem("page", "houses");
+    props.handleDrawerClick();
   }, []);
 
   const getHouseImageSource = (house) => {

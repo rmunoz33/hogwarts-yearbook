@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Students = () => {
+const Students = (props) => {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -29,6 +29,7 @@ const Students = () => {
 
   useEffect(() => {
     sessionStorage.setItem("page", "students");
+    props.handleDrawerClick();
 
     const fetchData = async () => {
       setLoading(true);
@@ -43,6 +44,7 @@ const Students = () => {
     };
 
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return loading ? (
