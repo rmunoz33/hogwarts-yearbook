@@ -94,6 +94,7 @@ const CharacterCardModal = ({ open, onClose, character }) => {
       maxWidth="sm"
       fullWidth
       ref={modalRef}
+      style={{ zIndex: 2 }}
     >
       <div>
         <DialogTitle disableTypography className={classes.title}>

@@ -23,7 +23,6 @@
   width: 100%;
   flex-grow: 1;
   position: "relative";
-  z-index: 1;
 }
 
 .cover-content {
@@ -35,7 +34,7 @@
   top: 40px;
   right: 40px;
   padding: 20px;
-  z-index: 99;
+  z-index: 1;
   cursor: pointer;
 }
 
@@ -44,6 +43,6 @@
   top: 40px;
   left: 40px;
   padding: 20px;
-  z-index: 99;
+  z-index: 1;
   cursor: pointer;
 }
