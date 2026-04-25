@@ -1,0 +1,78 @@
+.spell-card {
+  background: var(--surface-card);
+  border: var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.spell-card:hover {
+  border-color: var(--color-gold-dim);
+  background: var(--surface-card-hover);
+}
+
+.spell-card.expanded {
+  border-color: rgba(212, 168, 67, 0.25);
+  box-shadow: var(--glow-gold);
+}
+
+.spell-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  gap: var(--space-md);
+}
+
+.spell-card-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-gold);
+  margin: 0;
+}
+
+.spell-card-chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--color-text-dim);
+  transition: transform 0.3s;
+}
+
+.spell-card-chevron.open {
+  transform: rotate(180deg);
+}
+
+.spell-card-chevron svg {
+  width: 100%;
+  height: 100%;
+}
+
+.spell-card-body {
+  overflow: hidden;
+}
+
+.spell-card-description {
+  padding: 0 var(--space-lg) var(--space-lg);
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Spell grid */
+.spell-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-md);
+}
+
+@media (max-width: 640px) {
+  .spell-grid {
+    grid-template-columns: 1fr;
+  }
+}

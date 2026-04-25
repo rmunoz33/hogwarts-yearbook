@@ -1,7 +1,6 @@
 import { useState } from "react";
 import useSound from "use-sound";
 import backgroundMusic from "../assets/Prologue.mp3";
-import { PlayCircleFilled, PauseCircleFilled } from "@material-ui/icons";
 
 const AudioButton = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -20,13 +19,23 @@ const AudioButton = () => {
   };
 
   return (
-    <div onClick={toggleAudio} className="audio-toggle">
+    <button
+      onClick={toggleAudio}
+      className="fab-button"
+      aria-label={isPlaying ? "Pause music" : "Play music"}
+      title={isPlaying ? "Pause music" : "Play music"}
+    >
       {isPlaying ? (
-        <PauseCircleFilled fontSize="large" />
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <rect x="6" y="4" width="4" height="16" rx="1" />
+          <rect x="14" y="4" width="4" height="16" rx="1" />
+        </svg>
       ) : (
-        <PlayCircleFilled fontSize="large" />
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z" />
+        </svg>
       )}
-    </div>
+    </button>
   );
 };
 

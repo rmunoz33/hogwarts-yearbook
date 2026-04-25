@@ -1,26 +1,145 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 @font-face {
   font-family: "Lumos";
   src: url("./fonts/LUMOS.TTF") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: "Harry Potter";
   src: url("./fonts/HarryPotter-ov4z.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+}
+
+:root {
+  /* Core palette */
+  --color-midnight: #0a0e1a;
+  --color-deep-navy: #111827;
+  --color-dark-slate: #1a2035;
+  --color-slate: #243049;
+  --color-muted: #64748b;
+
+  /* Warm accents */
+  --color-gold: #d4a843;
+  --color-gold-bright: #f0c75e;
+  --color-gold-dim: #9a7b32;
+  --color-amber: #b8860b;
+  --color-parchment: #e8dcc8;
+  --color-parchment-light: #f5efe3;
+
+  /* House colors */
+  --color-gryffindor: #ae0001;
+  --color-gryffindor-accent: #eeba30;
+  --color-slytherin: #1a472a;
+  --color-slytherin-accent: #5d5d5d;
+  --color-ravenclaw: #0e1a40;
+  --color-ravenclaw-accent: #946b2d;
+  --color-hufflepuff: #372e29;
+  --color-hufflepuff-accent: #ecb939;
+
+  /* Text */
+  --color-text-primary: #e8dcc8;
+  --color-text-secondary: #a89b8c;
+  --color-text-dim: #6b6056;
+
+  /* Surfaces */
+  --surface-card: rgba(26, 32, 53, 0.85);
+  --surface-card-hover: rgba(36, 48, 73, 0.9);
+  --surface-overlay: rgba(10, 14, 26, 0.92);
+  --surface-glass: rgba(212, 168, 67, 0.06);
+
+  /* Effects */
+  --glow-gold: 0 0 20px rgba(212, 168, 67, 0.15);
+  --glow-gold-strong: 0 0 30px rgba(212, 168, 67, 0.3);
+  --border-subtle: 1px solid rgba(212, 168, 67, 0.12);
+  --border-accent: 1px solid rgba(212, 168, 67, 0.3);
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Sidebar */
+  --sidebar-width: 260px;
+
+  /* Typography */
+  --font-display: "Harry Potter", serif;
+  --font-body: "Lumos", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  --font-ui: "Lumos", Georgia, serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--color-midnight);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: normal;
+  color: var(--color-gold);
+  margin: 0;
+}
+
+a {
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--color-gold-bright);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  font-family: var(--font-ui);
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-midnight);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-slate);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-dim);
 }

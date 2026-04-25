@@ -1,0 +1,107 @@
+.houses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-lg);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.house-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-xl) var(--space-lg);
+  background: var(--surface-card);
+  border: var(--border-subtle);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all 0.35s;
+  overflow: hidden;
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+}
+
+.house-card:hover {
+  border-color: var(--house-accent);
+  background: var(--surface-card-hover);
+}
+
+.house-card.selected {
+  border-color: var(--house-accent);
+  box-shadow: 0 0 30px rgba(212, 168, 67, 0.15);
+}
+
+.house-card-glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: radial-gradient(
+    ellipse at 50% 30%,
+    var(--house-color) 0%,
+    transparent 70%
+  );
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.house-card.selected .house-card-glow {
+  opacity: 0.12;
+}
+
+.house-card-crest {
+  height: 140px;
+  width: auto;
+  transition: all 0.4s;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  position: relative;
+  z-index: 1;
+}
+
+.house-card.selected .house-card-crest {
+  filter: drop-shadow(0 4px 20px rgba(212, 168, 67, 0.3));
+}
+
+.house-card-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--color-gold);
+  position: relative;
+  z-index: 1;
+}
+
+.house-card-motto {
+  font-size: 0.8rem;
+  color: var(--color-text-dim);
+  font-style: italic;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.house-members-header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.house-members-header h2 {
+  font-size: 1.8rem;
+}
+
+@media (max-width: 640px) {
+  .houses-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  .house-card {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .house-card-crest {
+    height: 100px;
+  }
+}

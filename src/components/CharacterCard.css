@@ -1,0 +1,119 @@
+.character-card {
+  background: var(--surface-card);
+  border: var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.character-card:hover {
+  border-color: var(--color-gold-dim);
+  box-shadow: var(--glow-gold);
+  transform: translateY(-4px);
+  background: var(--surface-card-hover);
+}
+
+.character-card-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--color-dark-slate);
+}
+
+.character-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.character-card:hover .character-card-image {
+  transform: scale(1.05);
+}
+
+.character-card-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-dark-slate), var(--color-slate));
+}
+
+.character-card-placeholder svg {
+  width: 48px;
+  height: 48px;
+  color: var(--color-text-dim);
+}
+
+.character-card-house-badge {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.character-card-house-badge.gryffindor {
+  background: rgba(174, 0, 1, 0.8);
+  color: var(--color-gryffindor-accent);
+}
+
+.character-card-house-badge.slytherin {
+  background: rgba(26, 71, 42, 0.8);
+  color: #aaa;
+}
+
+.character-card-house-badge.ravenclaw {
+  background: rgba(14, 26, 64, 0.8);
+  color: var(--color-ravenclaw-accent);
+}
+
+.character-card-house-badge.hufflepuff {
+  background: rgba(55, 46, 41, 0.8);
+  color: var(--color-hufflepuff-accent);
+}
+
+.character-card-info {
+  padding: var(--space-md);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.character-card-name {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+}
+
+.character-card-detail {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+/* Grid */
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-lg);
+}
+
+@media (max-width: 640px) {
+  .character-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: var(--space-md);
+  }
+}
